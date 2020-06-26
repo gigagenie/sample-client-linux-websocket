@@ -17,8 +17,15 @@ Linux Sample Client (using g-sdk-linux-ws lib)
 
 ## sample app 빌드
 ### - 필요한 라이브러리 설치
+* [g-inside sdk websocket library](https://github.com/gigagenie/ginside-sdk/tree/master/g-sdk-linux-ws)
+    라이브러리와 헤더파일 다운로드후 해당폴더로 복사
+    $ sudo cp -r inc/ /usr/local/ginsidews/include/ && sudo cp -r lib/ubuntu-x86_64/ /usr/local/ginsidews/lib
 
-* [ALSA libary](https://www.alsa-project.org/wiki/Main_Page)
+* [cpprest library](https://github.com/microsoft/cpprestsdk)
+
+    $ apt-get install libcpprest-dev
+    
+* [ALSA library](https://www.alsa-project.org/wiki/Main_Page)
 
     $ sudo apt-get install libasound-dev
 * [VLC Media Player](https://www.videolan.org/index.ko.html)
