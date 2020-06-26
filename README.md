@@ -18,8 +18,12 @@ Linux Sample Client (using g-sdk-linux-ws lib)
 ## sample app 빌드
 ### - 필요한 라이브러리 설치
 * [g-inside sdk websocket library](https://github.com/gigagenie/ginside-sdk/tree/master/g-sdk-linux-ws)
-    라이브러리와 헤더파일 다운로드후 해당폴더로 복사
+    
+    라이브러리와 헤더파일 다운로드후 아래폴더로 복사
+    
     $ sudo cp -r inc/ /usr/local/ginsidews/include/ && sudo cp -r lib/ubuntu-x86_64/ /usr/local/ginsidews/lib
+    
+    (*위에서 라이브러리와 헤더파일의 복사 위치를 다른폴더로 변경할경우는 CMakeLists.txt의 INCLUDE_DIRECTORIES,LINK_DIRECTORIES 도 함께 변경이 필요함)
 
 * [cpprest library](https://github.com/microsoft/cpprestsdk)
 
