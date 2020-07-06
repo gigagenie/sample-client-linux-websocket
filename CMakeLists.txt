@@ -22,21 +22,27 @@ SET ( SRC_FILES
         )
  
 # 공통 컴파일러
-SET ( CMAKE_C_COMPILER "gcc" )
+SET ( CMAKE_C_COMPILER "g++" )
  
 # 공통 헤더 파일 Include 디렉토리 (-I)
-INCLUDE_DIRECTORIES (/usr/local/ginsidews/include)
- 
+INCLUDE_DIRECTORIES (/usr/local/ginsidews/include )
+
+SET (R_PATH "/usr/lib/x86_64-linux-gnu")
+
 
 # 공통 컴파일 옵션, 링크 옵션
-ADD_COMPILE_OPTIONS ( -std=c++11 -Wall -DLOG_TO_STDOUT=1 -pthread)
-SET ( CMAKE_EXE_LINKER_FLAGS "-std=c++11 -Wall -DLOG_TO_STDOUT=1 -pthread" )
+#ADD_COMPILE_OPTIONS ( -std=c++11 -Wall -DLOG_TO_STDOUT=1 -pthread)
+ADD_COMPILE_OPTIONS ( -std=c++11 -Wall -Wl,-rpath,${R_PATH} -DLOG_TO_STDOUT=1 -pthread)
+#SET ( CMAKE_EXE_LINKER_FLAGS "-std=c++11 -Wall -DLOG_TO_STDOUT=1 -pthread" )
+SET ( CMAKE_EXE_LINKER_FLAGS "-std=c++11 -Wl,-rpath,${R_PATH} -Wall -DLOG_TO_STDOUT=1 -pthread" )
+#set(CMAKE_INSTALL_RPATH "/usr/lib/x86_64-linux-gnu")
  
 # 공통 링크 라이브러리 (-l)
-LINK_LIBRARIES(ginsidews boost_system crypto ssl cpprest asound vlc KwsRnet)
+LINK_LIBRARIES(ginsidews cpprest asound vlc KwsRnet)
+#	LINK_LIBRARIES(ginsidews boost_system crypto ssl cpprest asound vlc KwsRnet)
  
 # 공통 링크 라이브러리 디렉토리 (-L)
-LINK_DIRECTORIES (/usr/local/ginsidews/lib )
+LINK_DIRECTORIES (/usr/local/ginsidews/lib)
  
 # "Debug" 형상 한정 컴파일 옵션, 링크 옵션
 SET ( CMAKE_C_FLAGS_DEBUG "-g" )
